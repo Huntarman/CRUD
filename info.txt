@@ -1,0 +1,19 @@
+1. Run Worker -> CLientInterface or Producerinterface
+2. every instance of client  requires you to use "add client" in Worker
+3. client files complaint -> worker gets it -> worker sends it to producer -> producer gets it -> producer revievs it and send it to worker etc...
+4. client can file 1 complaint at a time
+5. complaints are sent to producers based on product id (exmpl: product with id of 1 will get send to producer with id 1)
+6. Dont send multiple complains to one producer handle them respectively (send complaint(worker) -> get cocomplaint(producer))
+7. Also applies to when producer responds to complaint (Respond to complaint(Producer) -> get producers response (Worker))
+
+The following lines are explanation of content of ClientWorker files:
+No.Request ( 1 - client filing a complaint, 2 - worker giving info about status etc..)
+in case of Client filing a complaint file receives text in following format --> No.request;ClientID;ProductID;ProductName;DateOfBeingFiled
+in case of Worker sending the response to complaint, file receives text in following format --> No.request;Accepted/Rejected;ProductID;ProductName;DateOfReturn
+in case of Client receiving returned object, file receives text in following format --> No.request;
+
+
+The following lines are explanation of content of ProducerWorker files:
+No.request ( 1 - worker sending a complaint to producer, 2 - producer responding etc..)
+in case of worker sending the complaint file receives text in following format --> No.request;ProductIndexInArray;ProductID;ProductName;OwnerID;DateOfBeingFiled
+in case of producer responding file receives text in following format --> No.request;ProductIndexInArray;Accepted/Rejected;DateOfProducersReview (AcceptedONLY);DateOfReturn
