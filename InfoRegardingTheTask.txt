@@ -21,6 +21,6 @@ Student should introduce several custom exception (For example when client wants
 
 Date and time should not be based on local system time, instead a generated date in shared .txt file
 
-Final Grade: 4.5
+Grade: 4.5
 Possible Grades: 2.0(Failing) - 5.0;
 The cmd commands were correct
